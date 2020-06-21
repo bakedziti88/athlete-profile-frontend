@@ -1,5 +1,4 @@
 <div class = "container" ng-controller = 'athleteFormController as afc'>
-  
   <!--TODO: Implement progress bar / multi-page form-->
   <!-- <div class = "row justify-content-center mb-4">
     <div class = "col-md-6">
@@ -9,14 +8,18 @@
     </div>
   </div> -->
 
-  {{afc.pendingForm}}
+<div class = 'alert alert-danger' ng-show = 'afc.error'>
+    There were errors in the form below. Please make sure the required fields are filled out at the very least, and in the correct formats.
+</div>
+
+<div ng-show = '!afc.confirm'>
   <div class = "row justify-content-center">
     <div class = "col-md-6 align-self-center">
       <h3>Required Information</h3>
       <form novalidate>
         <div class = 'form-group'>
           <label for="name">Full Name</label>
-          <input type="text" class="form-control" id="name" ng-model = 'afc.pendingForm.name' ng-required='true'/>
+          <input type="text" class="form-control" id="name" ng-model = 'afc.pendingForm.name' />
         </div>
 
 
@@ -24,7 +27,7 @@
           <div class = 'col-md-8'>
             <div class = 'form-group'>
               <label for='dob'>Date of Birth</label>
-              <input type = "text" class = "form-control" id = "dob" ng-model = 'afc.pendingForm.dob' ng-required='true' placeholder = 'MM/DD/YYYY' />
+              <input type = "text" class = "form-control" id = "dob" ng-model = 'afc.pendingForm.dob' placeholder = 'MM/DD/YYYY' />
             </div>
           </div>
           <div class = 'col-md-4'>
@@ -134,10 +137,41 @@
 
         <div class = 'row mb-4'>
           <div class = 'col'>
-            <button class = 'btn btn-primary float-right' type = 'submit'>Next Step</button>
+            <button class = 'btn btn-primary float-right' ng-click = 'afc.goConfirm()'>Confirm Details</button>
           </div>
         </div>
       </form>
     </div>
+  </div>
+  </div>
+  <div ng-show = 'afc.confirm'>
+    <h3>Confirm These Fields Are Correct</h3>
+
+      <table class = 'table'>
+        <thead>
+          <tr>
+            <th>
+              Field
+            </th>
+            <th>
+              Submission
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat = '(key, value) in afc.pendingForm'>
+            <td>{{key}}</td>
+            <td>{{value}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button ng-click = 'afc.goBack()' class = 'btn btn-primary'>Back</button>
+      <button ng-click = '' class = 'btn btn-primary'>Submit</button>
+    
+  </div>
+
+  <div class = 'alert alert-danger' ng-show = 'afc.error'>
+    There were errors in the form below. Please make sure the required fields are filled out at the very least, and in the correct formats.
   </div>
 </div>
