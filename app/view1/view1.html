@@ -1,0 +1,15 @@
+<div ng-controller = 'athleteListController as alc'>
+    <form>
+        <label>search by name: </label>
+        <input ng-model = 'alc.search' />
+        <p>{{alc.search}}</p>
+    </form>
+    <p>{{athletes}}</p>
+    <div class = "container">
+        <div class = "row" ng-repeat = 'athleteChunk in alc.athletes'>
+            <div class = "col-md-4" ng-repeat = 'athlete in athleteChunk'>
+                <athlete-preview athlete = 'athlete'></athlete-preview>
+            </div>
+        </div>
+    </div>
+</div>
