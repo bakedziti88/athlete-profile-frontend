@@ -9,6 +9,10 @@ angular.module('athleteProfileApp.athleteForm', ['ngRoute'])
   });
 }])
 
-.controller('athleteFormController', [function() {
-
+.controller('athleteFormController', ['$http', function($http) {
+  let self = this
+  self.pendingForm = {gender: 'Male'}
+  $http.get('http://localhost:3000/api/sports').then(function(response) {
+    self.SPORTS = response.data
+  })
 }]);

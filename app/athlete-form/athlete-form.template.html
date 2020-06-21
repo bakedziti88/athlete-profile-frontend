@@ -1,0 +1,143 @@
+<div class = "container" ng-controller = 'athleteFormController as afc'>
+  
+  <!--TODO: Implement progress bar / multi-page form-->
+  <!-- <div class = "row justify-content-center mb-4">
+    <div class = "col-md-6">
+    <div class="progress" style = 'height: 5px'>
+      <div class="progress-bar" style = 'width: 40%' role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    </div>
+  </div> -->
+
+  {{afc.pendingForm}}
+  <div class = "row justify-content-center">
+    <div class = "col-md-6 align-self-center">
+      <h3>Required Information</h3>
+      <form novalidate>
+        <div class = 'form-group'>
+          <label for="name">Full Name</label>
+          <input type="text" class="form-control" id="name" ng-model = 'afc.pendingForm.name' ng-required='true'/>
+        </div>
+
+
+        <div class = 'row'>
+          <div class = 'col-md-8'>
+            <div class = 'form-group'>
+              <label for='dob'>Date of Birth</label>
+              <input type = "text" class = "form-control" id = "dob" ng-model = 'afc.pendingForm.dob' ng-required='true' placeholder = 'MM/DD/YYYY' />
+            </div>
+          </div>
+          <div class = 'col-md-4'>
+            <div class = 'form-group'>
+              <label for = 'gender'>Gender</label>
+              <select class = 'form-control' ng-model = 'afc.pendingForm.gender'>
+                <option value = 'Male'>Male</option>
+                <option value = 'Female'>Female</option>
+                <option value = 'Other'>Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+        <h3>Athlete Information (Optional)</h3>
+
+        <div class = 'row'>
+          <div class = 'col-md-6'>
+            <div classs = 'form-group'>
+              <label for = 'sports'>Sports</label>
+              <select class = 'form-control' ng-model = 'afc.pendingForm.sports' multiple>
+                <option ng-repeat = 'sport in afc.SPORTS'>{{sport}}</option>
+              </select>
+            </div>
+          </div>
+          <div class = 'col-md-6'>
+            <div class = 'form-group'>
+            <label for = 'team'>Association</label>
+            <input class = 'form-control' ng-model = 'afc.pendingForm.association' placeholder = 'NFL, NBA, etc.'/>
+            </div>
+          </div>
+        </div>
+        <div class = 'row'>
+          <div class = 'col'>
+            <div class = 'form-group'>
+              <label for = 'team'>
+                Current Team
+              </label>
+              <input class = 'form-control' ng-model = 'afc.pendingForm.team' />
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <h3>Personal Information (Optional)</h3>
+        <div class = 'row'>
+          <div class = 'col'>
+            <div class = 'form-group'>
+              <label for = 'nationality'>
+                Nationality
+              </label>
+              <input class = 'form-control' ng-model = 'afc.pendingForm.nationality' />
+            </div>
+          </div>
+        </div>
+        <div class = 'row'>
+          <div class = 'col'>
+            <div class = 'form-group'>
+              <label for = 'location'>
+                Location
+              </label>
+              <input class = 'form-control' ng-model = 'afc.pendingForm.location' />
+            </div>
+          </div>
+        </div>
+        <div class = 'row'>
+          <div class = 'col'>
+            <div class = 'form-group'>
+              <label for = 'about'>Tell Us About Yourself (max 300 characters)</label>
+              <textarea class = 'form-control' maxlength = '300' ng-model = 'afc.pendingForm.about'></textarea>
+            </div>
+          </div>
+        </div>
+        <div class = 'row'>
+          <div class = 'col'>
+            <div class = 'form-group'>
+              <label for = 'interests'>What Are Your Interests? (max 300 characters)</label>
+              <textarea class = 'form-control' maxlength = '300' ng-model = 'afc.pendingForm.interests'></textarea>
+            </div>
+          </div>
+        </div>
+        <div class = 'row'>
+          <div class = 'col'>
+            <div class = 'form-group'>
+              <label for = 'charities'>Please list any associated charities</label>
+              <textarea class = 'form-control' maxlength = '300' ng-model = 'afc.pendingForm.charities'></textarea>
+            </div>
+          </div>
+        </div>
+
+
+        <hr />
+
+        <h3>Social Media</h3>
+        <div class = 'row'>
+          <div class = 'col'>
+            <div class = 'form-group'>
+              <label for = 'social_media'>Please include any social media handles you may have</label>
+              <input placeholder = 'Twitter' ng-model = 'afc.pendingForm.social_media.twitter' class = 'form-control mb-2'/>
+              <input placeholder = 'Instagram' ng-model = 'afc.pendingForm.social_media.instagram' class = 'form-control mb-2'/>
+              <input placeholder = 'Facebook' ng-model = 'afc.pendingForm.social_media.facebook' class = 'form-control mb-2'/>
+            </div>
+          </div>
+        </div>
+
+        <div class = 'row mb-4'>
+          <div class = 'col'>
+            <button class = 'btn btn-primary float-right' type = 'submit'>Next Step</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
