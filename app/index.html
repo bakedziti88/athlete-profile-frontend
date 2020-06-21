@@ -18,8 +18,8 @@
 </head>
 <body>
   <ul class="menu">
-    <li><a href="#!/athletes">view1</a></li>
-    <li><a href="#!/create">view2</a></li>
+    <li><a href="#!/athletes">Athletes</a></li>
+    <li><a href="#!/create">Submit Your Own</a></li>
   </ul>
 
   <!--[if lt IE 7]>
@@ -28,16 +28,14 @@
 
   <div ng-view></div>
 
-  <div>AngularJS seed app: v<span app-version></span></div>
-
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
+  <script src="athlete-list/athlete-list.module.js"></script>
+  <script src="athlete-form/athlete-form.module.js"></script>
   <script src="core/version/version.js"></script>
   <script src="core/version/version-directive.js"></script>
   <script src="core/version/interpolate-filter.js"></script>

@@ -1,0 +1,22 @@
+<div ng-controller = 'athleteListController as alc'>
+    <div class = "container">
+
+        <!--Athlete Search Bar-->
+        <div class="input-group input-group-md mb-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg">Search For An Athlete: </span>
+            </div>
+        <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+        ng-model = 'alc.search'>
+        </div>
+
+        <!--Athlete Preview Cards-->
+        <div class = "row">
+            <div class = "col-md-3 mb-4" ng-repeat = 'athlete in alc.athletes | filterByName:alc.search'>
+                <athlete-preview athlete = 'athlete'></athlete-preview>
+            </div>
+        </div>
+
+
+    </div>
+</div>

@@ -4,11 +4,11 @@ angular.module('athleteProfileApp.athleteForm', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/create', {
-    templateUrl: 'view2/view2.html',
-    controller: 'View2Ctrl'
+    templateUrl: 'athlete-form/athlete-form.template.html',
+    controller: 'athleteFormController'
   });
 }])
 
-.controller('View2Ctrl', [function() {
+.controller('athleteFormController', [function() {
 
 }]);
