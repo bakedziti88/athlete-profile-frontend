@@ -1,0 +1,73 @@
+<div ng-controller = 'athleteDetailController as adc' class = "container">
+
+    <div class = "row">
+        <div class = "col-md-4">
+            <img src = 'https://uwosh.edu/deanofstudents/wp-content/uploads/sites/156/2019/02/profile-default.jpg'/>
+        </div>
+        <div class = "col-md-8">
+            <div class = "row">
+                <div class = "col">
+                    <h1 class = "display-3 p-0 m-0">{{adc.athlete.name}}</h1>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col">
+                    <h3>{{adc.athlete.team ? adc.athlete.team : 'Unaffiliated'}}</h3>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col">
+                    <h4>{{adc.athlete.location && adc.athlete.location + ' | '}}{{adc.athlete.gender}} | {{adc.athlete.DOB.substring(0,10)}}</h4>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col">
+                    <p>{{adc.athlete.about}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show = 'adc.hasSports'>
+        <div class = "row">
+            <div class = "col-md-6">
+                <h1 class = 'display-4'>Associated Sports</h1>
+                <ul class = 'list-group'>
+                    <li ng-repeat = 'sport in adc.athlete.sports' class = 'list-group-item'>{{sport}}</li>
+                </ul>
+            </div>
+            <div class = "col-md-6">
+                <h1 class = 'display-4'>Current Association</h1>
+                <h3>{{adc.athlete.association}}</h3>
+            </div>
+        </div>
+    </div>
+    <div ng-show = 'adc.hasPersonalInfo'>
+        <hr />
+        <h1 class = 'display-4'>Personal Info</h1>
+        <div class = "row" ng-show = 'adc.athlete.nationality'>
+            <div class = "col">
+                <h1 class = 'display-5'>Nationality</h1>
+                <p>{{adc.athlete.nationality}}</p>
+            </div>
+        </div>
+        <div class = "row" ng-show = 'adc.athlete.interests'>
+            <div class = "col">
+                <h1 class = 'display-5'>Interests</h1>
+                <p>{{adc.athlete.interests}}</p>
+            </div>
+        </div>
+        <div class = "row" ng-show = 'adc.athlete.charities'>
+            <div class = "col">
+                <h1 class = 'display-5'>Charities</h1>
+                <p>{{adc.athlete.charities}}</p>
+            </div>
+        </div>
+    </div>
+    <div ng-show = 'adc.hasSocialMedia'>
+        <hr />
+        <h1 class = 'display-4'>Social Medias</h1>
+        <ul class = 'list-group mb-4'>
+            <li ng-repeat = '(key, value) in adc.athlete.social_medias' class = 'list-group-item'>{{key}}: {{value}}</li>
+        </ul>
+    </div>
+</div>

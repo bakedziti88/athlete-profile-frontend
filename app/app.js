@@ -5,6 +5,7 @@ angular.module('athleteProfileApp', [
   'ngRoute',
   'athleteProfileApp.athleteList',
   'athleteProfileApp.athleteForm',
+  'athleteProfileApp.athleteDetail',
   'athleteProfileApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
