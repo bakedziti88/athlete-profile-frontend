@@ -9,7 +9,7 @@ angular.module('athleteProfileApp.athleteForm', ['ngRoute'])
   });
 }])
 
-.controller('athleteFormController', ['$http', function($http) {
+.controller('athleteFormController', ['$http','$location', function($http, $location) {
   let self = this
   self.pendingForm = {gender: 'Male'}
   self.confirm = false
@@ -20,12 +20,12 @@ angular.module('athleteProfileApp.athleteForm', ['ngRoute'])
   })
 
   self.validate = function() {
-    if (!(self.pendingForm.name && self.pendingForm.gender && self.pendingForm.dob)) {
+    if (!(self.pendingForm.name && self.pendingForm.gender && self.pendingForm.DOB)) {
       return false
     }
 
     //TODO: NEED TO VALIDATE DATE
-    if (self.pendingForm.dob) {}
+    if (self.pendingForm.DOB) {}
     return true
   }
   self.goConfirm = function() {
@@ -41,6 +41,13 @@ angular.module('athleteProfileApp.athleteForm', ['ngRoute'])
   }
   self.goBack = function() {
     self.confirm = false
+  }
+
+  self.submission = function() {
+    $http.post('http://localhost:3000/api/athletes', self.pendingForm).then(function(response) {
+      console.log(response.data)
+      $location.path('/athletes')
+    })
   }
 
 }]);

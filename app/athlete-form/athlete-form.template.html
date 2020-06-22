@@ -27,7 +27,7 @@
           <div class = 'col-md-8'>
             <div class = 'form-group'>
               <label for='dob'>Date of Birth</label>
-              <input type = "text" class = "form-control" id = "dob" ng-model = 'afc.pendingForm.dob' placeholder = 'MM/DD/YYYY' />
+              <input type = "text" class = "form-control" id = "DOB" ng-model = 'afc.pendingForm.DOB' placeholder = 'MM/DD/YYYY' />
             </div>
           </div>
           <div class = 'col-md-4'>
@@ -167,7 +167,7 @@
       </table>
 
       <button ng-click = 'afc.goBack()' class = 'btn btn-primary'>Back</button>
-      <button ng-click = '' class = 'btn btn-primary'>Submit</button>
+      <button ng-click = 'afc.submission()' class = 'btn btn-primary'>Submit</button>
     
   </div>
 
